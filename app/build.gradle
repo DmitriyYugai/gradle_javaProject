@@ -11,20 +11,35 @@ plugins {
     id 'application'
 }
 
-repositories {
+project.description = "Java Project Gradle"
+project.version = 1.0
+project.ext.customProp = 123
+
+project.repositories ({
+    println project.name
+    println project.description
+    println project.version
+    println project.path
+    println project.projectDir
+    println project.buildDir
+    println project.customProp
+    println project.property("customProp")
+    println 'repositories'
     // Use JCenter for resolving dependencies.
     jcenter()
-}
+})
 
-dependencies {
+project.dependencies ({
+    println 'dependencies'
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13'
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
-}
+})
 
-application {
+project.application ({
+    println 'application'
     // Define the main class for the application.
     mainClass = 'dima.gradle.App'
-}
+})
